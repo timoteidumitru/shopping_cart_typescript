@@ -64,8 +64,8 @@ const App = () => {
   };
 
   // try make a dynamic sorting
-  // function sortData(product: Product[]) {
-  //   const sortedData = product?.sort((a, b) => {
+  // function sortData(products: Product[]) {
+  //   const sortedData = products?.sort((a, b) => {
   //     return a > b ? 1 : -1;
   //   });
   //   setSortedByPrice(sortedData);
@@ -98,7 +98,7 @@ const App = () => {
             <TableRow>
               <TableCell>Category</TableCell>
               <TableCell>Name</TableCell>
-              <TableCell onClick={() => handlesortByPrice(sortedByPrice)} style={{ cursor: 'pointer' }}>
+              <TableCell onClick={() => handlesortByPrice(products!)} style={{ cursor: 'pointer' }}>
                 Price
               </TableCell>
               <TableCell>Actions</TableCell>
