@@ -29,7 +29,6 @@ const App = () => {
   const [cartOpen, setCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([] as Product[]);
   const [products, setProducts] = useState<Product[]>();
-  const [sortedByPrice, setSortedByPrice] = useState<Product[]>([]);
   const [sortOrder, setSortOrder] = useState<boolean>(true);
 
   useEffect(() => {
@@ -66,24 +65,22 @@ const App = () => {
 
   const handlesortByPrice = (products: Product[]) => {
     if (sortOrder) {
-      let sortedArrayAsc = products.sort((obj1: Product, obj2: Product) => {
+      products.sort((obj1: Product, obj2: Product) => {
         if (obj1.price > obj2.price) return 1;
         if (obj1.price < obj2.price) return -1;
         return 0;
       });
-      setSortedByPrice(sortedArrayAsc);
       setSortOrder(false);
     } else {
-      let sortedArrayDesc = products.sort((obj1: Product, obj2: Product) => {
+      products.sort((obj1: Product, obj2: Product) => {
         if (obj1.price < obj2.price) return 1;
         if (obj1.price > obj2.price) return -1;
         return 0;
       });
-      setSortedByPrice(sortedArrayDesc);
       setSortOrder(true);
     }
   };
-  console.log(sortedByPrice);
+  // console.log(sortedByPrice);
 
   return (
     <Wrapper>
