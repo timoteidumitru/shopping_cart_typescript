@@ -30,6 +30,7 @@ const App = () => {
   const [cartItems, setCartItems] = useState([] as Product[]);
   const [products, setProducts] = useState<Product[]>();
   const [sortedByPrice, setSortedByPrice] = useState<Product[]>([]);
+  const [sortOrder, setSortOrder] = useState<boolean>(true);
 
   useEffect(() => {
     axios.get<Product[]>('http://localhost:3001/api/products').then((response) => {
@@ -63,22 +64,24 @@ const App = () => {
     );
   };
 
-  // try make a dynamic sorting
-  // function sortData(products: Product[]) {
-  //   const sortedData = products?.sort((a, b) => {
-  //     return a > b ? 1 : -1;
-  //   });
-  //   setSortedByPrice(sortedData);
-  //   return sortedData;
-  // }
-
   const handlesortByPrice = (products: Product[]) => {
-    let sortedArray = products.sort((obj1: Product, obj2: Product) => {
-      if (obj1.price > obj2.price) return 1;
-      if (obj1.price < obj2.price) return -1;
-      return 0;
-    });
-    setSortedByPrice(sortedArray);
+    if (sortOrder) {
+      let sortedArrayAsc = products.sort((obj1: Product, obj2: Product) => {
+        if (obj1.price > obj2.price) return 1;
+        if (obj1.price < obj2.price) return -1;
+        return 0;
+      });
+      setSortedByPrice(sortedArrayAsc);
+      setSortOrder(false);
+    } else {
+      let sortedArrayDesc = products.sort((obj1: Product, obj2: Product) => {
+        if (obj1.price < obj2.price) return 1;
+        if (obj1.price > obj2.price) return -1;
+        return 0;
+      });
+      setSortedByPrice(sortedArrayDesc);
+      setSortOrder(true);
+    }
   };
   console.log(sortedByPrice);
 
