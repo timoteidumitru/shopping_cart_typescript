@@ -29,7 +29,8 @@ const App = () => {
   const [cartOpen, setCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([] as Product[]);
   const [products, setProducts] = useState<Product[]>();
-  const [sortOrder, setSortOrder] = useState<boolean>(true);
+  const [sortOrderByPrice, setSortOrderByPrice] = useState<boolean>(true);
+  const [sortOrderByCategory, setSortOrderByCategory] = useState<boolean>(true);
 
   useEffect(() => {
     axios.get<Product[]>('http://localhost:3001/api/products').then((response) => {
@@ -64,23 +65,40 @@ const App = () => {
   };
 
   const handlesortByPrice = (products: Product[]) => {
-    if (sortOrder) {
+    if (sortOrderByPrice) {
       products.sort((obj1: Product, obj2: Product) => {
         if (obj1.price > obj2.price) return 1;
         if (obj1.price < obj2.price) return -1;
         return 0;
       });
-      setSortOrder(false);
+      setSortOrderByPrice(false);
     } else {
       products.sort((obj1: Product, obj2: Product) => {
         if (obj1.price < obj2.price) return 1;
         if (obj1.price > obj2.price) return -1;
         return 0;
       });
-      setSortOrder(true);
+      setSortOrderByPrice(true);
     }
   };
-  // console.log(sortedByPrice);
+
+  const handlesortByCatedory = (products: Product[]) => {
+    if (sortOrderByCategory) {
+      products.sort((obj1: Product, obj2: Product) => {
+        if (obj1.category.name > obj2.category.name) return 1;
+        if (obj1.category.name < obj2.category.name) return -1;
+        return 0;
+      });
+      setSortOrderByCategory(false);
+    } else {
+      products.sort((obj1: Product, obj2: Product) => {
+        if (obj1.category.name < obj2.category.name) return 1;
+        if (obj1.category.name > obj2.category.name) return -1;
+        return 0;
+      });
+      setSortOrderByCategory(true);
+    }
+  };
 
   return (
     <Wrapper>
@@ -96,7 +114,9 @@ const App = () => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>Category</TableCell>
+              <TableCell onClick={() => handlesortByCatedory(products!)} style={{ cursor: 'pointer' }}>
+                Category
+              </TableCell>
               <TableCell>Name</TableCell>
               <TableCell onClick={() => handlesortByPrice(products!)} style={{ cursor: 'pointer' }}>
                 Price
