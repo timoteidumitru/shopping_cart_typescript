@@ -15,17 +15,17 @@ App using [Typescript](https://www.typescriptlang.org/), [React Router](https://
 
    ```ts
    interface Product {
-     name: string;
-     category: Category;
-     price: number;
+     name: string
+     category: Category
+     price: number
    }
    ```
 
 2. `http://localhost:3001/api/product/categories/ (GET)` - get list of categories.
    ```ts
    interface Category {
-     id: string;
-     name: string;
+     id: string
+     name: string
    }
    ```
 
@@ -63,3 +63,5 @@ List of added products example:
 | Category | Name | Quantity | Price | Actions |
 |------------------------------|:---------|:---------|:------|:--------------:|
 | Vegetables and legumes/beans | Broccoli | 2 | \$0.50 | (-) Remove (+) |
+
+![shopping-cart-app](https://user-images.githubusercontent.com/35012587/166242732-a7a159bb-f3d6-4857-8380-41413385513d.jpg)
