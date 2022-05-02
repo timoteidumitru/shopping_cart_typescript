@@ -1,16 +1,23 @@
-import Button from '@material-ui/core/Button';
-import React from 'react';
+import Button from '@material-ui/core/Button'
+import React from 'react'
 // Types
-import { Product } from '../../App';
+import { Product } from '../../App'
 // Styles
-import { Wrapper } from './CartItem.styles';
-import { Table, Paper, TableHead, TableBody, TableCell, TableRow } from '@material-ui/core';
+import { Wrapper } from './CartItem.styles'
+import {
+  Table,
+  Paper,
+  TableHead,
+  TableBody,
+  TableCell,
+  TableRow,
+} from '@material-ui/core'
 
 type Props = {
-  item: Product;
-  addToCart: (clickedItem: Product) => void;
-  removeFromCart: (id: number) => void;
-};
+  item: Product
+  addToCart: (clickedItem: Product) => void
+  removeFromCart: (id: number) => void
+}
 
 const CartItem: React.FC<Props> = ({ item, addToCart, removeFromCart }) => (
   <Wrapper>
@@ -32,16 +39,21 @@ const CartItem: React.FC<Props> = ({ item, addToCart, removeFromCart }) => (
             <TableCell>{item.amount}</TableCell>
             <TableCell>${item.price}</TableCell>
             <TableCell
-              style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                flexDirection: 'column',
+                alignItems: 'center',
+              }}
             >
-              <Button onClick={() => removeFromCart(item.id)}>(-)</Button> Remove{' '}
-              <Button onClick={() => addToCart(item)}>(+)</Button>
+              <Button onClick={() => removeFromCart(item.id)}>(-)</Button>{' '}
+              Remove <Button onClick={() => addToCart(item)}>(+)</Button>
             </TableCell>
           </TableRow>
         </TableBody>
       </Table>
     </Paper>
   </Wrapper>
-);
+)
 
-export default CartItem;
+export default CartItem

@@ -1,8 +1,6 @@
-# Junior Javascript Developer (React)
+# Products sorting JavaScript (React)
 
-It's necessary to create React JS application, using only [Typescript](https://www.typescriptlang.org/), [React Router](https://reacttraining.com/react-router/web/guides/quick-start) and [React Context](https://reactjs.org/docs/context.html), that will show list of products and gets possibility for user adding desired products in his cart.
-
-Keep away from unnecessary dependecies, keep it simple.
+App using [Typescript](https://www.typescriptlang.org/), [React Router](https://reacttraining.com/react-router/web/guides/quick-start) and [React Context](https://reactjs.org/docs/context.html), that will show list of products and gets possibility for user adding desired products in his cart.
 
 ## Getting started
 
@@ -31,10 +29,10 @@ Keep away from unnecessary dependecies, keep it simple.
    }
    ```
 
-## Todo:
+## Functionalities:
 
 <ol>
-  <li>Create page with list of products.
+  <li>Show list of products.
     <ul>
       <li>Fetch list of products.</li>
       <li>Show all the products in a table.</li>
@@ -43,9 +41,9 @@ Keep away from unnecessary dependecies, keep it simple.
     </ul>
   </li>
 
-  <li>Add posibility to sort products by <b>categories</b> and price by <b>desc</b> or <b>asc</b>.</li>
+  <li>Posibility to sort products by <b>categories</b> and price by <b>desc</b> or <b>asc</b>.</li>
 
-  <li>Create page with list of added products.
+  <li>A page with list of added products.
     <ul>
       <li>Show all the added products in a table.</li>
       <li>Add possibility to change quantity of added products.</li>

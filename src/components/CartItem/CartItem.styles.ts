@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -22,4 +22,4 @@ export const Wrapper = styled.div`
     object-fit: cover;
     margin-left: 40px;
   }
-`;
+`
