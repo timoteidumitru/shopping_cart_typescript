@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-// import { BrowserRouter as Routes, Switch, Route, Link } from 'react-router-dom';
 // Components
 import Cart from './components/Cart/Cart'
 import Drawer from '@material-ui/core/Drawer'
@@ -59,6 +58,7 @@ const App = () => {
     })
   }
 
+  // remove items from cart
   const handleRemoveFromCart = (id: number) => {
     setCartItems((prev) =>
       prev.reduce((ack, item) => {
@@ -72,6 +72,7 @@ const App = () => {
     )
   }
 
+  // sort list by price
   const handlesortByPrice = (products: Product[]) => {
     if (sortOrderByPrice) {
       products.sort((obj1: Product, obj2: Product) => {
@@ -90,7 +91,8 @@ const App = () => {
     }
   }
 
-  const handlesortByCatedory = (products: Product[]) => {
+  // sort items by category
+  const handlesortByCategory = (products: Product[]) => {
     if (sortOrderByCategory) {
       products.sort((obj1: Product, obj2: Product) => {
         if (obj1.category.name > obj2.category.name) return 1
@@ -136,7 +138,7 @@ const App = () => {
           <TableHead>
             <TableRow>
               <TableCell
-                onClick={() => handlesortByCatedory(products!)}
+                onClick={() => handlesortByCategory(products!)}
                 style={{ cursor: 'pointer' }}
               >
                 Category
