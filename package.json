@@ -28,7 +28,7 @@
     "build": "react-scripts build",
     "serve:client": "react-scripts start",
     "serve:server": "node index.js",
-    "start": "concurrently \"npm run serve:server\" \"npm run serve:client\""
+    "start": "concurrently \"npm run build\" \"npm run serve:server\" \"npm run serve:client\""
   },
   "eslintConfig": {
     "extends": "react-app",
