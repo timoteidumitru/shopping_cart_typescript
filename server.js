@@ -1,7 +1,6 @@
-// Accessing the path module
 const express = require('express')
-const path = require('path')
 const cors = require('cors')
+const path = require('path')
 
 const { data, categories } = require('./data.js')
 const PORT = process.env.PORT || 3001
@@ -12,6 +11,9 @@ app.use(express.static(path.resolve(__dirname, './build')))
 app.use(cors())
 
 // routes
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('build'))
+}
 
 app.get('/api/products/', function (req, res) {
   res.setHeader('Content-Type', 'application/json')
@@ -22,10 +24,6 @@ app.get('/api/product/categories/', function (req, res) {
   res.setHeader('Content-Type', 'application/json')
   res.send(categories)
 })
-
-// app.get('*', function (request, response) {
-//   response.sendFile(path.resolve(__dirname, './build', 'index.html'))
-// })
 
 app.listen(PORT, () =>
   console.log(`Server successfully started on port ${PORT}!`)

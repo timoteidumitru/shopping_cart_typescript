@@ -16,6 +16,7 @@
     "dotenv": "^16.0.3",
     "express": "^4.17.1",
     "husky": "^4.2.5",
+    "nodemon": "^2.0.20",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-query": "^3.34.16",
@@ -26,9 +27,11 @@
   },
   "scripts": {
     "build": "react-scripts build",
-    "serve:client": "react-scripts start",
-    "serve:server": "node index.js",
-    "start": "concurrently \"npm run build\" \"npm run serve:server\" \"npm run serve:client\""
+    "install-client": "npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
+    "client": "react-scripts start",
+    "server": "nodemon server.js",
+    "start": "concurrently --kill-others-on-fail \"npm run build\" \"npm run server\" \"npm run client\""
   },
   "eslintConfig": {
     "extends": "react-app",
