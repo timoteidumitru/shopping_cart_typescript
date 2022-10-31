@@ -31,7 +31,7 @@
     "heroku-postbuild": "npm run install-client && npm run build",
     "client": "react-scripts start",
     "server": "nodemon server.js",
-    "start": "concurrently --kill-others-on-fail \"npm run build\" \"npm run server\" \"npm run client\""
+    "start": "concurrently --kill-others-on-fail \"npm run heroku-postbuild\" \"npm run server\" \"npm run client\""
   },
   "eslintConfig": {
     "extends": "react-app",
