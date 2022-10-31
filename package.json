@@ -13,6 +13,7 @@
     "axios": "^0.26.0",
     "concurrently": "^7.5.0",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
     "express": "^4.17.1",
     "husky": "^4.2.5",
     "react": "^16.13.1",
@@ -24,8 +25,9 @@
     "typescript": "~3.7.2"
   },
   "scripts": {
+    "build": "react-scripts build",
     "serve:client": "react-scripts start",
-    "serve:server": "node ./server",
+    "serve:server": "node index.js",
     "start": "concurrently \"npm run serve:server\" \"npm run serve:client\""
   },
   "eslintConfig": {
